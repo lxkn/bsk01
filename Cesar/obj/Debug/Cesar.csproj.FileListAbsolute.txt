@@ -1,0 +1,6 @@
+c:\users\user\documents\visual studio 2015\Projects\Cesar\Cesar\bin\Debug\Cesar.exe.config
+c:\users\user\documents\visual studio 2015\Projects\Cesar\Cesar\bin\Debug\Cesar.exe
+c:\users\user\documents\visual studio 2015\Projects\Cesar\Cesar\bin\Debug\Cesar.pdb
+c:\users\user\documents\visual studio 2015\Projects\Cesar\Cesar\obj\Debug\Cesar.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2015\Projects\Cesar\Cesar\obj\Debug\Cesar.exe
+c:\users\user\documents\visual studio 2015\Projects\Cesar\Cesar\obj\Debug\Cesar.pdb
