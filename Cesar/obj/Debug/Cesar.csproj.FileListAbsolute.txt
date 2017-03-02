@@ -4,3 +4,9 @@ c:\users\user\documents\visual studio 2015\Projects\Cesar\Cesar\bin\Debug\Cesar.
 c:\users\user\documents\visual studio 2015\Projects\Cesar\Cesar\obj\Debug\Cesar.csprojResolveAssemblyReference.cache
 c:\users\user\documents\visual studio 2015\Projects\Cesar\Cesar\obj\Debug\Cesar.exe
 c:\users\user\documents\visual studio 2015\Projects\Cesar\Cesar\obj\Debug\Cesar.pdb
+C:\Users\lxkn\Desktop\zadanie_bsk\bsk01\Cesar\bin\Debug\Cesar.exe.config
+C:\Users\lxkn\Desktop\zadanie_bsk\bsk01\Cesar\obj\Debug\Cesar.exe
+C:\Users\lxkn\Desktop\zadanie_bsk\bsk01\Cesar\obj\Debug\Cesar.pdb
+C:\Users\lxkn\Desktop\zadanie_bsk\bsk01\Cesar\bin\Debug\Cesar.exe
+C:\Users\lxkn\Desktop\zadanie_bsk\bsk01\Cesar\bin\Debug\Cesar.pdb
+C:\Users\lxkn\Desktop\zadanie_bsk\bsk01\Cesar\obj\Debug\Cesar.csprojResolveAssemblyReference.cache
