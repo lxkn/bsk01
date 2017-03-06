@@ -11,7 +11,7 @@ namespace Cesar
         int[] tablica;
         int[] tablica3;
         string klucz = "abc";
-        string slowo = "ALAMAKOTAIPSAELO"; // slowo wejsciowe
+        string slowo = "ALAMAKOTA"; // slowo wejsciowe
         string alfabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         string kodm = "CONVENIENCE";
         int k = 3,cesarn;
@@ -48,10 +48,6 @@ namespace Cesar
             Console.WriteLine("Dekodowany: " + macierzdk2);
             string macierzk3 = KodowanieMacierzowe3(slowom);
             Console.WriteLine("\nMacierzowe 2c\nKodowany: " + macierzk3);
-            string rail = KodowanieRail(slowo,4);
-            Console.Write("\nRail\nKodowany: " + rail);
-            string raildk = DekodowanieRail(slowo, 4);
-            Console.WriteLine("\nDekodowany: " + raildk);
             cesarn = slowo.Length;
             string cesark1 = KodowanieCesar1(slowo);
             Console.WriteLine();
@@ -96,7 +92,7 @@ namespace Cesar
                     
                 }
             }
-            for (int i = 0; i < n - 1; i++)
+            /*for (int i = 0; i < n - 1; i++)
             {
                 for (int j = 0; j < n; j++)
                 {
@@ -104,7 +100,7 @@ namespace Cesar
 
                 }
                 Console.WriteLine();
-            }
+            }*/
             for (int i =0;i<n-1;i++)
             {
                 for(int j=0;j<n;j++)
@@ -124,26 +120,26 @@ namespace Cesar
             }
             return kodowany;
         }
-        private string DekodowanieMacierzowe1(string tekst)
+        private string DekodowanieMacierzowe1(string key)
         {
             string dekodowany = "";
-            char[] c = new char[tekst.Length];
+            char[] c = new char[key.Length];
             int n = kod.Length;
-            for (int j = 0, i = 0; i < tekst.Length; j += n)
+            for (int j = 0, i = 0; i < key.Length; j += n)
             {
-                if (kod[0] + j < tekst.Length)
-                    c[kod[0] + j] = tekst[i++];
-                if (kod[1] + j < tekst.Length)
-                    c[kod[1] + j] = tekst[i++];
-                if (kod[2] + j < tekst.Length)
-                    c[kod[2] + j] = tekst[i++];
-                if (kod[3] + j < tekst.Length)
-                    c[kod[3] + j] = tekst[i++];
-                if (kod[4] + j < tekst.Length)
-                    c[kod[4] + j] = tekst[i++];
+                if (kod[0] + j < key.Length)
+                    c[kod[0] + j] = key[i++];
+                if (kod[1] + j < key.Length)
+                    c[kod[1] + j] = key[i++];
+                if (kod[2] + j < key.Length)
+                    c[kod[2] + j] = key[i++];
+                if (kod[3] + j < key.Length)
+                    c[kod[3] + j] = key[i++];
+                if (kod[4] + j < key.Length)
+                    c[kod[4] + j] = key[i++];
             }
-            string asd = new string(c);
-            return asd;
+            dekodowany = new string(c);
+            return dekodowany;
         }
         private string KodowanieMacierzowe2(string key, string haslo)
         {
@@ -287,14 +283,14 @@ namespace Cesar
                 x++;
                 plus++;
             }
-            for (int i = 0; i < rozmiar; i++)
+            /*for (int i = 0; i < rozmiar; i++)
             {
                 for (int j = 0; j < rozmiar; j++)
                 {
                     Console.Write(tmp[i, j]);
                 }
                 Console.WriteLine();
-            } //Wypisywanie tablicy dwuwymiarowej!
+            } *///Wypisywanie tablicy dwuwymiarowej!
             int pocz = 0,gora =0;
             int p2=0;
             // Console.WriteLine(tmp[0, 0]);
@@ -329,67 +325,71 @@ namespace Cesar
 
             return dekodowany;
         }
-        private string KodowanieRail(string key,int n)
+        /*private string KodowanieRail(string tekst,int n)
         {
             string kodowany = "";
-            for(int i = 0;i<=n;i++)
+            char[] c = new char[tekst.Length];
+            int k = 0;
+            for (int poziom = 0; poziom <= n; poziom++)
             {
-                for(int j = 0; j<key.Length; j++)
+                for (int i = 0; i < tekst.Length; i++)
                 {
-                    if(i==0 && 2*(n-1)*j < key.Length)
+                    if (poziom == 0 && (2 * (n - 1)) * i < tekst.Length)
                     {
-                        kodowany += Char.ToUpper(key[(2 * n - 1) * j]);
+                        c[k++] = tekst[(2 * (n - 1)) * i];
                     }
-                    if (i == n && ((2 * (n - 1)) * j) + (n - 1) < key.Length)
+                    if (poziom == n && ((2 * (n - 1)) * i) + (n - 1) < tekst.Length)
                     {
-                        kodowany += Char.ToUpper(key[((2 * (n - 1)) * j) + (n - 1)]);
+                        c[k++] = tekst[((2 * (n - 1)) * i) + (n - 1)];
                     }
-                    if(i != 0 && i < n - 1 && (2 * (n - 1)) * j - i < key.Length && j != 0)
+                    if (poziom != 0 && poziom < n - 1 && (2 * (n - 1)) * i - poziom < tekst.Length && i != 0)
                     {
-                        kodowany += Char.ToUpper(key[(2 * (n - 1)) * j - i]);
+                        c[k++] = tekst[(2 * (n - 1)) * i - poziom];
                     }
-                    if(i!=0 && i < n-1 && 2*(n-1)*j + i < key.Length)
+                    if (poziom != 0 && poziom < n - 1 && (2 * (n - 1)) * i + poziom < tekst.Length)
                     {
-                        kodowany += Char.ToUpper(key[2 * (n - 1) * j + i]);
+                        c[k++] = tekst[(2 * (n - 1)) * i + poziom];
                     }
                 }
             }
-            
-            return kodowany;
+                kodowany = new string(c);
+                return kodowany;
         }
-        private string DekodowanieRail(string key, int n)
+        public static string DekodowanieRail(string tekst, int n)
         {
-            string dekodowany = "";
-            int pocz = 0;
-            char[] dek1 = new char[key.Length];
-            for (int i = 0; i <= n; i++)
+            char[] c = new char[tekst.Length];
+            int k = 0;
+            for (int poziom = 0; poziom <= n; poziom++)
             {
-                for (int j = 0; j < key.Length; j++)
+                for (int i = 0; i < tekst.Length; i++)
                 {
-                    if (i == 0 && 2 * (n - 1) * j < key.Length)
+                    if (poziom == 0 && (2 * (n - 1)) * i < tekst.Length)
                     {
-                        dek1[(2 * (n - 1)) * i] = key[pocz++];
+                        //  c[k++] = tekst[(2 * (n - 1)) * i];
+                        c[(2 * (n - 1)) * i] = tekst[k++];
                     }
-                    if (i == n && ((2 * (n - 1)) * j) + (n - 1) < key.Length)
+                    if (poziom == n && ((2 * (n - 1)) * i) + (n - 1) < tekst.Length)
                     {
-                        dek1[((2 * (n - 1)) * j) + (n - 1)] = key[pocz++];
+                        //c[k++] = tekst[((2 * (n - 1)) * i) + (n - 1)];
+                        c[((2 * (n - 1)) * i) + (n - 1)] = tekst[k++];
                     }
-                    if (i != 0 && i < n - 1 && (2 * (n - 1)) * j - i < key.Length && j != 0)
+                    if (poziom != 0 && poziom < n - 1 && (2 * (n - 1)) * i - poziom < tekst.Length && i != 0)
                     {
-                         dek1[(2 * (n - 1)) * j - i] = key[pocz++];
+                        //c[k++] = tekst[(2 * (n - 1)) * i - poziom];
+                        c[(2 * (n - 1)) * i - poziom] = tekst[k++];
                     }
-                    if (i != 0 && i < n - 1 && 2 * (n - 1) * j + i < key.Length)
+                    if (poziom != 0 && poziom < n - 1 && (2 * (n - 1)) * i + poziom < tekst.Length)
                     {
-                        dek1[(2 * (n - 1)) * j + i ]= key[pocz++];
+                        //c[k++] = tekst[(2 * (n - 1)) * i + poziom];
+                        c[(2 * (n - 1)) * i + poziom] = tekst[k++];
                     }
                 }
             }
-            for(int i =0; i<dek1.Length;i++)
-            {
-                dekodowany += Char.ToUpper(dek1[i]);
-            }
-            return dekodowany;
-        }
+
+
+            string s = new string(c);
+            return s;
+        }*/
         private string KodowanieCesar1(string key)
         {
             string kodowany = "";
